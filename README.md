@@ -9,7 +9,7 @@ We have selected a SMS Spam Collection dataset, which contains a total of 5574 t
 
 
 ## Structure of our repository
-
+```
 ├── LICENSE                   # Open-source license if one is chosen
 ├── Makefile                 # Makefile with convenience commands like `make data` or `make train`
 ├── README.md                # The top-level README for developers using this project
@@ -34,3 +34,4 @@ We have selected a SMS Spam Collection dataset, which contains a total of 5574 t
         ├── predict.py       # Code to run model inference with trained models
         ├── train.py         # Code to train models
         └── plots.py         # Code to create visualizations
+```
