@@ -10,44 +10,27 @@ We have selected a SMS Spam Collection dataset, which contains a total of 5574 t
 
 ## Structure of our repository
 
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── processed      <- Our processed and cleaned files are stored in a publicly accessible google drive folder.
-│   └── raw            <- Our raw files are stored in a publicly accessible google drive folder. 
-│
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
-│
-├── models             <- Our trained and serialized models.
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
-│
-└── {{ cookiecutter.module_name }}   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes {{ cookiecutter.module_name }} a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations   
+├── LICENSE                   # Open-source license if one is chosen
+├── Makefile                 # Makefile with convenience commands like `make data` or `make train`
+├── README.md                # The top-level README for developers using this project
+├── data/
+│   ├── processed/           # Our processed and cleaned files stored in a publicly accessible Google Drive folder
+│   └── raw/                 # Our raw files stored in a publicly accessible Google Drive folder
+├── docs/                    # A default mkdocs project for documentation (see www.mkdocs.org)
+├── models/                  # Trained and serialized models
+├── notebooks/               # Jupyter notebooks; naming convention includes ordering, creator’s initials, and a short description
+├── references/              # Data dictionaries, manuals, and other explanatory materials
+├── reports/                 # Generated analysis in formats like HTML, PDF, LaTeX
+├── figures/                 # Generated graphics and figures for reporting
+├── requirements.txt         # Requirements file (generated with `pip freeze > requirements.txt`)
+├── setup.cfg                # Configuration file for flake8
+└── {{cookiecutter.module_name}}/
+    ├── __init__.py          # Initializes the Python module
+    ├── config.py            # Stores useful variables and configuration
+    ├── dataset.py           # Scripts to download or generate data
+    ├── features.py          # Code to create features for modeling
+    └── modeling/
+        ├── __init__.py      # Initializes the modeling subpackage
+        ├── predict.py       # Code to run model inference with trained models
+        ├── train.py         # Code to train models
+        └── plots.py         # Code to create visualizations
