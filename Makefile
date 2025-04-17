@@ -16,7 +16,7 @@ model-deep:
 	jupyter nbconvert --to notebook --execute "Models/Deep Learning.ipynb" --output "output/deep_learning_output.ipynb"
 
 model-logreg:
-	jupyter nbconvert --to notebook --execute "Models/LogReg_333333.ipynb" --output "output/logreg_output.ipynb"
+	jupyter nbconvert --to notebook --execute "Models/Logistic Regression.ipynb" --output "output/logreg_output.ipynb"
 
 model-nb:
 	jupyter nbconvert --to notebook --execute "Models/NaiveBayes.ipynb" --output "output/naive_bayes_output.ipynb"
