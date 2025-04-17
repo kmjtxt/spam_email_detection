@@ -15,9 +15,9 @@ Summary of steps taken during cleaning and processing
 
 ## Hypotheses
 
-Hypothesis 1 - Contextual Semantics: Words carry different semantic meanings depending on the context, differing between spam and non-spam. 
-Hypothesis 2 - Lexical Semantics: Spam content is more likely to have monetary terms.
-Hypothesis 3 - Structural Features: Spam emails exhibit distinct structural characteristics in their URLs compared to non-spam emails.
+1. Hypothesis 1 - Contextual Semantics: Words carry different semantic meanings depending on the context, differing between spam and non-spam. 
+2. Hypothesis 2 - Lexical Semantics: Spam content is more likely to have monetary terms.
+3. Hypothesis 3 - Structural Features: Spam emails exhibit distinct structural characteristics in their URLs compared to non-spam emails.
 
 ## Feature Engineering
 
