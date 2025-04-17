@@ -106,8 +106,7 @@ We engineered features from:
 
 ##  License
 
-MIT License (or update based on course or repository guidelines)
-
+MIT License 
 ---
 
 ##  References
