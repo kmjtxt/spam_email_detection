@@ -3,6 +3,7 @@ Raw datasets are located in this Google Drive due to the large-sized files: http
 
 ## Location of Processed Datasets
 Processed dataset is located in this Google Drive due to its size: https://drive.google.com/drive/folders/1gexy0lphv7drQL4hYstczXB9ze7Ef8ei?usp=sharing
+Note: full_df was trained with POS tagging previously but the features are not used in our analysis.
 
 
 ## Description of dataset sources
