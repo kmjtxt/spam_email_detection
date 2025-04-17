@@ -1,48 +1,118 @@
-# spam_email_detection
 
-## Abstract
 
-With the prominence of technology throughout the decades, spam emails have become more pertinent and a more accessible avenue for scam attempts to occur. Spam emails can result in financial losses and the compromise of personal and confidential information for both individuals and companies. Yet, we do not have the luxury of time to individually review our emails and deduce if they are a spam or non-spam email. Thus, our project aims to model an effective machine learning solution to filter spam emails, to minimise the odds of becoming a victim of these virtual scam practices and protect individuals in both a personal and corporate setting and improve user experience. Our dataset collected from Kaggle and Zenodo are used to supplement our models – a logistic regression model utilising Bag-of-Words, TF-IDF and n-grams features served as our baseline, while Naive Bayes and deep learning models were further implemented as challengers. Our models are then evaluated vis-a-vis their F1-score due to its balance between precision and recall. Our project was not met without any challenges – from deciding the steps taken for the preprocessing of our dataset to balance between providing sufficient information and reducing noise for model training and extracting the relevant features that produces ideal results. From our model, the error-based ensemble model we constructed by combining Naive Bayes and Logistic regression produced the most optimal results, with potential to further pipeline in fraud detection and email security systems. 
+# Spam Email Detection using Machine Learning
 
- 
+This repository contains the code and resources for our group project for DSA4263: Sense Case Making Analysis (Business & Commerce) at NUS. Our project focuses on building a robust spam email classifier using various NLP and machine learning techniques to enhance cybersecurity and improve email filtering.
 
-## Problem Statement 
- 
+---
 
-With a record high of $1.1 billion loss to scams and an estimated 7.2 billion spam emails sent out daily in Singapore in 2024, emails remain an easy and scalable medium for scammers to prey on victims, leading to unprecedented financial losses. The dynamic nature of spam emails presents an ongoing challenge of filtering spam emails to deter access to them. 
+##  Project Overview
 
- 
+Spam emails pose a significant risk to both individuals and organizations, contributing to fraud, phishing, and loss of confidential data. Our solution leverages classical machine learning and deep learning models to accurately classify emails as spam or non-spam, with a strong emphasis on model interpretability and deployment readiness.
 
-Our solution aims to filter such malicious spam emails to minimise damages. Through such direct communication, scammers can extract confidential information, resulting in scams like account takeovers and identity theft. Filtering spam content also enhances user experience by reducing inbox clutter. Our finalised dataset contains two key columns – label (spam or not) and the email content. The spam emails considered include phishing attempts, promotional contents and personal information extraction. 
+---
 
- 
+##  Dataset
 
-This project primarily benefits email providers (e.g., Gmail, Outlook) and the financial institutions. Building on the existing spam filtering techniques adopted by email providers, our project aims to minimise spam while preserving legitimate emails to minimise disruption for users. This is essential to prevent loss of important emails due to false positives, which are still prevalent in today’s filtering algorithms. Additionally, financial institutions are key targets of phishing attempts so stronger spam filtering techniques can minimise financial loss for both the institutions and their customers.
+We used a combination of public datasets sourced from:
+- Enron Corpus
+- Ling-Spam Dataset
+- SpamAssassin Corpus
+- TREC, CEAS, and Nazario Spam Corpora
+- Kaggle Email Datasets
 
-## Structure of our repository
-```
-├── LICENSE                   # Open-source license if one is chosen
-├── Makefile                 # Makefile with convenience commands like `make data` or `make train`
-├── README.md                # The top-level README for developers using this project
-├── data/
-│   ├── processed/           # Our processed and cleaned files stored in a publicly accessible Google Drive folder
-│   └── raw/                 # Our raw files stored in a publicly accessible Google Drive folder
-├── docs/                    # A default mkdocs project for documentation (see www.mkdocs.org)
-├── models/                  # Trained and serialized models
-├── notebooks/               # Jupyter notebooks; naming convention includes ordering, creator’s initials, and a short description
-├── references/              # Data dictionaries, manuals, and other explanatory materials
-├── reports/                 # Generated analysis in formats like HTML, PDF, LaTeX
-├── figures/                 # Generated graphics and figures for reporting
-├── requirements.txt         # Requirements file (generated with `pip freeze > requirements.txt`)
-├── setup.cfg                # Configuration file for flake8
-└── {{cookiecutter.module_name}}/
-    ├── __init__.py          # Initializes the Python module
-    ├── config.py            # Stores useful variables and configuration
-    ├── dataset.py           # Scripts to download or generate data
-    ├── features.py          # Code to create features for modeling
-    └── modeling/
-        ├── __init__.py      # Initializes the modeling subpackage
-        ├── predict.py       # Code to run model inference with trained models
-        ├── train.py         # Code to train models
-        └── plots.py         # Code to create visualizations
-```
+All datasets were consolidated and cleaned to retain only English email bodies and binary spam labels.
+
+---
+
+##  Data Preprocessing
+
+- Language filtering with `langdetect`
+- Removal of headers, URLs, whitespace, and duplicates
+- Tokenization, stopword removal, and lemmatization using `NLTK`
+- Final dataset: 126,008 emails (cleaned, labeled, and tokenized)
+
+---
+
+##  Exploratory Analysis
+
+Three key hypotheses were tested:
+1. **Contextual semantics (Word2Vec)** – Rejected (worsened model performance)
+2. **Lexical semantics (Monetary terms)** – Accepted (spam commonly contains monetary language)
+3. **URL structural patterns** – Rejected (URL-based features did not improve performance)
+
+---
+
+##  Feature Engineering
+
+We engineered features from:
+- **BoW** and **TF-IDF** vectors (word/char n-grams)
+- **Part-of-speech sequences**
+- Combined features into a unified sparse matrix for model training
+
+---
+
+##  Models & Performance
+
+
+| Model               | Accuracy | Precision | Recall  | F1 Score | AUC    |
+|---------------------|----------|-----------|---------|----------|--------|
+| Logistic Regression | 97.98%   | 97.35%    | 98.40%  | 97.87%   | 0.9955 |
+| Naive Bayes         | 95.25%   | 95.21%    | 94.73%  | 94.97%   | 0.9818 |
+| Model Ensemble      | 96.99%   | 94.95%    | **98.90%**  | 96.89%   | 0.9808 |
+| Deep Learning       | **98.37%** | **98.66%**  | 97.90%  | **98.28%** | **0.9983** |
+
+
+
+
+---
+
+##  Model Explainability
+
+- **Logistic Regression:** Top words influencing spam classification visualized.
+- **Naive Bayes:** Log-probability differences of influential features.
+- **Deep Learning (FFNN):** LIME used for local explanations of predictions.
+
+---
+
+##  Deployment Proposal
+
+1. Email preprocessing pipeline
+2. Feature extraction
+3. Ensemble classifier with confidence logic
+4. Final decision routing to inbox/quarantine
+5. Admin dashboard for feedback and auditing
+
+---
+
+##  Limitations & Future Work
+
+- Model currently supports only **English** emails
+- Future exploration of **time series spam patterns**
+- Consideration of metadata (sender, timestamp) for spoof detection
+- Expansion into **multilingual spam detection**
+
+---
+
+##  Authors
+
+- Chua Yong Yaw Louis (A0216304U)
+- Kang Qi Ying (A0239986A)
+- Tang Xitong (A0237310U)
+- Vijayakumar Sabarina (A0245262J)
+- Yong Hui Qi (A0237925W)
+
+---
+
+##  License
+
+MIT License (or update based on course or repository guidelines)
+
+---
+
+##  References
+
+All references used in this project are cited in the final report located in `/docs/Group_Paper_Writeup.pdf`.
+
+
+
