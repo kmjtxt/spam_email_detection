@@ -106,12 +106,12 @@ We engineered features from:
 
 ##  License
 
-MIT License 
+    MIT License 
 ---
 
 ##  References
 
-All references used in this project are cited in the final report located in `/docs/Group_Paper_Writeup.pdf`.
+All references used in this project are cited in the final report located in `/materials/Group_Paper_Writeup.pdf`.
 
 
 
