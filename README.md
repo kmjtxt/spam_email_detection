@@ -21,7 +21,7 @@ We used a combination of public datasets sourced from:
 - TREC, CEAS, and Nazario Spam Corpora
 - Kaggle Email Datasets
 
-All datasets were consolidated and cleaned to retain only English email bodies and binary spam labels.
+All datasets were consolidated and cleaned to retain only English email bodies and binary spam labels. Due to storage constraints, all of our raw datasets have been saved in a google drive folder instead. 
 
 ---
 
@@ -31,6 +31,8 @@ All datasets were consolidated and cleaned to retain only English email bodies a
 - Removal of headers, URLs, whitespace, and duplicates
 - Tokenization, stopword removal, and lemmatization using `NLTK`
 - Final dataset: 126,008 emails (cleaned, labeled, and tokenized)
+
+Cleaned dataset has been stored in a google drive folder. 
 
 ---
 
